@@ -21,7 +21,7 @@ RUN npm install
 COPY webpack.config.js autoapp.py ./
 COPY guard_tower guard_tower
 COPY assets assets
-COPY .env.example .env
+COPY .env .env
 RUN npm run-script build
 
 # ================================= DEVELOPMENT ================================

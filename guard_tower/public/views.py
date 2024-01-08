@@ -55,19 +55,23 @@ def logout():
 @blueprint.route("/register/", methods=["GET", "POST"])
 def register():
     """Register new user."""
+    print("help")
     form = RegisterForm(request.form)
-    if form.validate_on_submit():
-        User.create(
-            username=form.username.data,
-            email=form.email.data,
-            password=form.password.data,
-            active=True,
-        )
-        flash("Thank you for registering. You can now log in.", "success")
-        return redirect(url_for("public.home"))
+    if request.method == "GET":
+        return render_template("public/register.html", form=form)
     else:
-        flash_errors(form)
-    return render_template("public/register.html", form=form)
+        if form.validate_on_submit():
+            User.create(
+                username=form.username.data,
+                email=form.email.data,
+                password=form.password.data,
+                active=True,
+            )
+            flash("Thank you for registering. You can now log in.", "success")
+            return redirect(url_for("public.home"))
+        else:
+            flash_errors(form)
+        return render_template("public/register.html", form=form)
 
 
 @blueprint.route("/about/")
