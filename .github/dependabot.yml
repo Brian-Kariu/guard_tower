@@ -4,23 +4,28 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    target-branch: "develop"
 
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
+    target-branch: "develop"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
+    target-branch: "develop"
 
   - package-ecosystem: "pip"
     directory: "/requirements"
     schedule:
       interval: "daily"
+    target-branch: "develop"
 
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "daily"
+    target-branch: "develop"
