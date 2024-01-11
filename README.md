@@ -213,13 +213,13 @@ as it resolves the correct file name, including the MD5 hash.
 For example
 
 ```html
-<link rel="shortcut icon" href="{{static_url_for('static', filename='build/favicon.ico') }}">
+<link rel="shortcut icon" href="{{static_url_for('static', filename='build/favicon.ico') }}" />
 ```
 
 If all of your static files are managed this way, then their filenames will change whenever their
 contents do, and you can ask Flask to tell web browsers that they
 should cache all your assets forever by including the following line
-in ``.env``:
+in `.env`:
 
 ```text
 SEND_FILE_MAX_AGE_DEFAULT=31556926  # one year
@@ -228,20 +228,20 @@ SEND_FILE_MAX_AGE_DEFAULT=31556926  # one year
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
+
 Ideally you should be able to create a super user account, login then start creating user groups for your app. Other
 features would be create,edit and delete permissions for user, social authentication and even admin dashboards.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## Roadmap
+
 - [x] Create a working jwt auth flow
 - [ ] Detailed user profile
 - [ ] Create user groups models for the different apps
 - [ ] Create permissions for each of the groups
 - [ ] Admin dashboards
 - [ ] Social Authentication
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

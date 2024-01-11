@@ -56,3 +56,9 @@ env/
 
 # Development database
 *.db
+
+# Htmx files
+/guard_tower/static/htmx.min.*
+/guard_tower/static/htmx.min.gz
+/guard_tower/static/cache_manifest.json
+/guard_tower/static/*
