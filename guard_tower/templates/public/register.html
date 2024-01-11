@@ -1,31 +1,36 @@
-
-{% extends "layout.html" %}
-{% block content %}
-<div class="container-narrow">
-  <h1 class="mt-5">Register</h1>
-    <br/>
-    <form id="registerForm" class="form form-register" method="POST" action="" role="form">
-           {{ form.csrf_token }}
-            <div class="form-group">
-                {{form.username.label}}
-                {{form.username(placeholder="Username", class_="form-control")}}
-            </div>
-            <div class="form-group">
-                {{form.email.label}}
-                {{form.email(placeholder="Email", class_="form-control")}}
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-                {{form.password.label}}
-                {{form.password(placeholder="Password", class_="form-control")}}
-            </div>
-            <div class="form-group">
-                {{form.confirm.label}}
-                {{form.confirm(placeholder="Password (again)", class_="form-control")}}
-            </div>
-            <p><input class="btn btn-primary" type="submit" value="Register"></p>
-    </form>
-    <p><em>Already registered?</em> Click <a href="/">here</a> to login.</p>
+{% extends "layout.html" %} {% block content %}
+<div class="flex w-full justify-evenly">
+  <div class="m-auto">
+  <div class="flex justify-evenly">
+    <img alt="shortcut icon" src="{{static_url_for('static', filename='build/padlock.png') }}" style="width:80px;height:80px;"/>
+  </div>
+  <br />
+  <h3 class="text-center"><b>Create your free account.</b></h3>
+  <form id="registerForm" hx-post="/register" hx-trigger="submit" class="block" method="POST" action="" class="text-center" role="form">
+    {{ form.csrf_token }}
+    <div class="mb-4 flex flex-col">
+      <div class="flex justify-between place-items-center">
+          {{form.username.label(class_="block py-2 px-3 text-gray-700 text-lg font-bold")}}
+          {{form.username(placeholder="Username", class_="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline")}}
+      </div>
+      <div class="flex justify-between">
+          {{form.email.label(class_="block py-2 px-3 text-gray-700 text-lg font-bold")}}
+          {{form.email(placeholder="Email", class_="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline")}}
+      </div>
+      <div class="flex justify-between">
+          {{form.password.label(class_="block py-2 px-3 text-gray-700 text-lg font-bold")}}
+          {{form.password(placeholder="Password", class_="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline")}}
+      </div>
+      <div class="flex justify-between">
+          {{form.confirm.label(class_="block py-2 px-3 text-gray-700 text-lg font-bold")}}
+          {{form.confirm(placeholder="Password (again)", class_="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline")}}
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <input class="shadow bg-purple-600 hover:bg-blue-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit" value="Register"></input>
+    </div>
+  </form>
+  <p class="text-center"><em>Already registered?</em> Click <a class="text-blue-500" href="/">here</a> to login.</p>
+</div>
 </div>
 {% endblock %}
-
