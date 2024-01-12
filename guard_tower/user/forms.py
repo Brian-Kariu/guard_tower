@@ -23,6 +23,7 @@ class RegisterForm(FlaskForm):
         "Verify password",
         [DataRequired(), EqualTo("password", message="Passwords must match")],
     )
+    app = StringField("App", validators=[DataRequired(), Length(min=3, max=25)])
 
     def __init__(self, *args, **kwargs):
         """Create instance."""
