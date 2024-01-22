@@ -8,7 +8,6 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from guard_tower.database import Column, PkModel, db, reference_col, relationship
 from guard_tower.extensions import bcrypt
 
-
 class Role(PkModel):
     """A role for a user."""
 
@@ -38,6 +37,9 @@ class User(UserMixin, PkModel):
     last_name = Column(db.String(30), nullable=True)
     active = Column(db.Boolean(), default=False)
     is_admin = Column(db.Boolean(), default=False)
+    app_id = reference_col("apps", nullable=True)
+    app = relationship("App", backref="users")
+
 
     @hybrid_property
     def password(self):

@@ -17,6 +17,7 @@
     </div>
     <div>
       <div class="flex justify-evenly gap-3" hx-target="">
+        {% if current_user.is_anonymous == True and current_user.is_authenticated == False %}
         <a
           href="/login"
           class="shadow bg-blue-400 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
@@ -27,7 +28,13 @@
           class="shadow bg-purple-400 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
           Sign up for free
         </a>
-        
+        {% endif %}
+        {% if current_user.is_authenticated %}
+          <a class="shadow bg-purple-400 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" 
+            href="/logout">logout
+          </a>
+        {% endif %}
+       
       </div>
   </div>
 </nav>

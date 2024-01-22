@@ -1,0 +1,16 @@
+{% extends "layout.html" %} {% block content %}
+<div hx-boost="true" id="app-content" class="flex flex-col items-center mx-8">
+    <div class="w-full">
+        <h2 class="text-center">View app </h2>
+        <p>Here are the apps:</p>
+        <div class="flex justify-between mx-4">
+            <div id="app-id">{{app.id}}</div>
+            <div>{{app.name}}</div>
+            <div>{{app.link}}</div>
+            <div>{{app.get_users()}}</div>
+            <a href="/admin/apps">Edit app</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

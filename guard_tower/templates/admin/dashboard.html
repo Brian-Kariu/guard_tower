@@ -1,0 +1,33 @@
+{% extends "layout.html" %} {% block content %}
+<div hx-boost="true" class="flex flex-col items-center mx-8">
+    <a class="text-end" href="/admin/apps">Create App</a>
+    <div class="w-full">
+        <h2 class="text-center">Dashboard works!</h2>
+        <p>Here are the apps:</p>
+        <a href="/admin/apps/">Add new App</a>
+        <ul class="flex justify-between">
+            <li>Index</li>
+            <li>App</li>
+            <li>Link</li>
+            <li>User Count</li>
+            <li>Edit</li>
+        </ul>
+        <ul>
+        {% for app in apps %}
+            <li>
+                <div class="flex justify-between">
+                    <div>{{loop.index}}</div>
+                    <div>{{app.name}}</div>
+                    <div>{{app.link}}</div>
+                    <div>{{app.get_users()}}</div>
+                    <a href="/admin/apps">Edit</a>
+                </div>
+            </li>
+        {% else %}
+            No items!
+        {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

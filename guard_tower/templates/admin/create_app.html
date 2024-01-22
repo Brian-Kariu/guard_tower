@@ -1,0 +1,26 @@
+{% extends "layout.html" %} {% block content %}
+<div>
+    <h3 class="text-center"><b>Create new app</b></h3>
+    <form id="createAppForm" hx-post="/apps" hx-trigger="submit" method="POST" role="form">
+        {{ form.csrf_token }}
+        <div class="mb-4 flex flex-col">
+            <div class="flex justify-between place-items-center">
+                {{form.name.label(class_="block py-2 px-3 text-gray-700 text-lg font-bold")}}
+                {{form.name(placeholder="name", class_="shadow appearance-none border rounded w-full py-2
+                px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline")}}
+            </div>
+            <div class="flex justify-between">
+                {{form.url.label(class_="block py-2 px-3 text-gray-700 text-lg font-bold")}}
+                {{form.url(placeholder="url", class_="shadow appearance-none border rounded w-full py-2
+                px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline")}}
+            </div>
+        </div>
+        <div class="flex justify-center">
+            <input
+                class="shadow bg-purple-600 hover:bg-blue-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                hx-confirm="Submit new app?"  type="submit" value="Create"></input>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
